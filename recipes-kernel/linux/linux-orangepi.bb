@@ -49,7 +49,6 @@ SUMMARY = "An example kernel recipe that uses the linux-yocto and oe-core"
 #            SRC_URI += "file://feature.scc"
 #
 
-inherit kernel
 require recipes-kernel/linux/linux-yocto.inc
 
 # Override SRC_URI in a copy of this recipe to point at a different source
@@ -80,10 +79,4 @@ KERNEL_EXTRA_ARGS += "KCFLAGS='-Wno-error'"
 
 KCONFIG_MODE = "alldefconfig"
 
-do_compile_kernelmodules:prepend() {
-	export PKG_CONFIG_DIR="${STAGING_DIR_NATIVE}${libdir_native}/pkgconfig"
-	export PKG_CONFIG_PATH="$PKG_CONFIG_DIR:${STAGING_DATADIR_NATIVE}/pkgconfig"
-	export PKG_CONFIG_LIBDIR="$PKG_CONFIG_DIR"
-	export PKG_CONFIG_SYSROOT_DIR=""
-	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${STAGING_LIBDIR_NATIVE}
-}
+# EXTRA_OEMAKE += "V=1"
