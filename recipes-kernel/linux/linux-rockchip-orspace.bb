@@ -11,7 +11,10 @@
 #  
 
 SRC_URI = "git://github.com/rockchip-linux/kernel.git;name=machine;branch=develop-6.1;protocol=https"
+SRCREV_machine="cef907463922f246977813d803c440b5b2fb1765"
 
 # Allows specifying an in-tree deconfig file to be used as the kernel configuration
 # - To use a custom defconfig file, you need to place it in a file called "defconfig" in a files path directory of your recipe
 KBUILD_DEFCONFIG = "rk3566"
+
+LICENSE = "CLOSED"

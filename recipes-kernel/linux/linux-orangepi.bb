@@ -54,8 +54,8 @@ require recipes-kernel/linux/linux-yocto.inc
 
 # Override SRC_URI in a copy of this recipe to point at a different source
 # tree if you do not want to build from Linus' tree.
-SRC_URI = "git://github.com/rockchip-linux/kernel.git;name=machine;branch=develop-6.1;protocol=https"
-SRC_URI += "file://defconfig"
+SRC_URI = "git://github.com/orangepi-xunlong/linux-orangepi.git;name=machine;branch=orange-pi-6.1-rk35xx;protocol=https"
+# SRC_URI += "file://defconfig"
 
 LINUX_VERSION ?= "6.1"
 LINUX_VERSION_EXTENSION:append = "-custom"
@@ -65,13 +65,25 @@ KERNEL_IMAGETYPE = "Image"
 # Modify SRCREV to a different commit hash in a copy of this recipe to
 # build a different release of the Linux kernel.
 # tag: v4.2 64291f7db5bd8150a74ad2036f1037e6a0428df2
-SRCREV_machine="cef907463922f246977813d803c440b5b2fb1765"
+SRCREV="fb528a6014381c12a129e4f5e33c8034d46ad25e"
 
-PV = "${LINUX_VERSION}.115"
+PV = "${LINUX_VERSION}.43"
 
 # Override COMPATIBLE_MACHINE to include your machine in a copy of this recipe
 # file. Leaving it empty here ensures an early explicit build failure.
 COMPATIBLE_MACHINE = "opi3b"
-# KBUILD_DEFCONFIG = "rockchip_linux_defconfig"
+KBUILD_DEFCONFIG = "rockchip_linux_defconfig"
 
 LICENSE = "CLOSED"
+
+KERNEL_EXTRA_ARGS += "KCFLAGS='-Wno-error'"
+
+KCONFIG_MODE = "alldefconfig"
+
+do_compile_kernelmodules:prepend() {
+	export PKG_CONFIG_DIR="${STAGING_DIR_NATIVE}${libdir_native}/pkgconfig"
+	export PKG_CONFIG_PATH="$PKG_CONFIG_DIR:${STAGING_DATADIR_NATIVE}/pkgconfig"
+	export PKG_CONFIG_LIBDIR="$PKG_CONFIG_DIR"
+	export PKG_CONFIG_SYSROOT_DIR=""
+	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${STAGING_LIBDIR_NATIVE}
+}
