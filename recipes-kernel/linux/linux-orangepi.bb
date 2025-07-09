@@ -53,7 +53,9 @@ require recipes-kernel/linux/linux-yocto.inc
 
 # Override SRC_URI in a copy of this recipe to point at a different source
 # tree if you do not want to build from Linus' tree.
-SRC_URI = "git://github.com/orangepi-xunlong/linux-orangepi.git;name=machine;branch=orange-pi-6.1-rk35xx;protocol=https"
+SRC_URI = "git://github.com/orangepi-xunlong/linux-orangepi.git;name=machine;branch=orange-pi-6.1-rk35xx;protocol=https \
+           file://0001-Makefile-not-supports-out-of-tree-builds.patch \
+           "
 # SRC_URI += "file://defconfig"
 
 LINUX_VERSION ?= "6.1"
@@ -79,4 +81,6 @@ KERNEL_EXTRA_ARGS += "KCFLAGS='-Wno-error'"
 
 KCONFIG_MODE = "alldefconfig"
 
-# EXTRA_OEMAKE += "V=1"
+EXTRA_OEMAKE += "V=1"
+
+INSANE_SKIP:${PN}-src += "buildpaths"

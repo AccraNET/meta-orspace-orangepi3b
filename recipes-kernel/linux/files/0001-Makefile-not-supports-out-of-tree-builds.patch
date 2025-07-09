@@ -1,0 +1,23 @@
+From 86c3954739cc65c6944308385ef44003540bbe78 Mon Sep 17 00:00:00 2001
+From: cerezo <cerezo.larbi@outlook.com>
+Date: Tue, 8 Jul 2025 18:03:02 +0000
+Subject: [PATCH] Makefile not supports out of tree builds
+
+Upstream-Status: Inappropriate
+---
+ drivers/net/wireless/rockchip_wlan/rkwifi/bcmdhd/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/rockchip_wlan/rkwifi/bcmdhd/Makefile b/drivers/net/wireless/rockchip_wlan/rkwifi/bcmdhd/Makefile
+index afde1f4c6291..188f5a33cdbb 100755
+--- a/drivers/net/wireless/rockchip_wlan/rkwifi/bcmdhd/Makefile
++++ b/drivers/net/wireless/rockchip_wlan/rkwifi/bcmdhd/Makefile
+@@ -495,7 +495,7 @@ BCMDHD_ROOT = $(src)
+ #$(warning "BCMDHD_ROOT=$(BCMDHD_ROOT)")
+ EXTRA_CFLAGS = $(DHDCFLAGS)
+ EXTRA_CFLAGS += -DDHD_COMPILED=\"$(BCMDHD_ROOT)\"
+-EXTRA_CFLAGS += -I$(BCMDHD_ROOT)/include/ -I$(BCMDHD_ROOT)/
++EXTRA_CFLAGS += -I$(srctree)/$(BCMDHD_ROOT)/include/ -I$(srctree)/$(BCMDHD_ROOT)/
+ ifeq ($(CONFIG_AP6XXX),m)
+ EXTRA_LDFLAGS += --strip-debug
+ endif
