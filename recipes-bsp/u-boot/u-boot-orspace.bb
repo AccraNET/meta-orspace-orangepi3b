@@ -3,8 +3,10 @@ require recipes-bsp/u-boot/u-boot-common.inc
 
 inherit python3native
 
+SRC_URI += "file://rk3566_ddr_1056MHz_v1.23.bin"
+
 DEPENDS += "tfa-orspace"
 DEPENDS += "python3-pyelftools-native"
 
-EXTRA_OEMAKE += "BL31=${WORKDIR}/recipe-sysroot/sysroot-only/bl31.elf"
+EXTRA_OEMAKE += "ROCKCHIP_TPL=${UNPACKDIR}/rk3566_ddr_1056MHz_v1.23.bin BL31=${WORKDIR}/recipe-sysroot/sysroot-only/bl31.elf"
 
