@@ -10,3 +10,6 @@ DEPENDS += "python3-pyelftools-native"
 
 EXTRA_OEMAKE += "ROCKCHIP_TPL=${UNPACKDIR}/rk3566_ddr_1056MHz_v1.23.bin BL31=${WORKDIR}/recipe-sysroot/sysroot-only/bl31.elf"
 
+do_deploy:append() {
+    install -m 0644 ${B}/u-boot-rockchip.bin ${DEPLOYDIR}/u-boot-rockchip.bin
+}
