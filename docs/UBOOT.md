@@ -51,4 +51,18 @@ An environment variable can store a script as well.
 A default environment is built into the u-boot binary at compile time.  
 An optional environment can be loaded at boot time from storage.
 The default and loaded environments are merged and stored in ram, which becomes the final environment for the session.  
-The environment can be modified and persisted to storage.
+The environment can be modified and persisted to storage.  
+
+
+
+# Troubleshoot
+
+### Card did not respond to voltage select! : -110
+
+This is issue is probably related to a clock speed issue with the interface for the sd card or emmc device.  
+Solved by running the command below to change the speed.  
+
+`mmc dev 1 0 6`  
+
+Link to resource on Stack overflow.  
+https://unix.stackexchange.com/questions/762032/uboot-boots-from-sd-card-but-cant-read-info-from-mmc  
