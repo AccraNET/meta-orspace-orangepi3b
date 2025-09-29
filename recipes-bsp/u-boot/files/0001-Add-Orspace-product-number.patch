@@ -1,0 +1,22 @@
+From 504710ae52d1a4b2a6a4bf9a92f9c63d056d5aa0 Mon Sep 17 00:00:00 2001
+From: cerezo <cerezo.larbi@outlook.com>
+Date: Mon, 29 Sep 2025 20:13:04 +0000
+Subject: [PATCH] Add Orspace product number
+
+Upstream-Status: Inappropriate
+---
+ include/configs/rk3568_common.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/configs/rk3568_common.h b/include/configs/rk3568_common.h
+index 09b7b71c6af..90942b14d03 100644
+--- a/include/configs/rk3568_common.h
++++ b/include/configs/rk3568_common.h
+@@ -19,6 +19,7 @@
+ 	"scriptaddr=0x00c00000\0"	\
+ 	"script_offset_f=0xffe000\0"	\
+ 	"script_size_f=0x2000\0"	\
++	"orspace=0x00001\0"		\
+ 	"pxefile_addr_r=0x00e00000\0"	\
+ 	"kernel_addr_r=0x02000000\0"	\
+ 	"kernel_comp_addr_r=0x0a000000\0"	\

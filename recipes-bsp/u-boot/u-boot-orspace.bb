@@ -3,7 +3,8 @@ require recipes-bsp/u-boot/u-boot-common.inc
 
 inherit python3native
 
-SRC_URI += "file://rk3566_ddr_1056MHz_v1.23.bin"
+SRC_URI += " file://rk3566_ddr_1056MHz_v1.23.bin"
+SRC_URI += "  file://0001-Add-Orspace-product-number.patch"
 
 DEPENDS += "tfa-orspace"
 DEPENDS += "python3-pyelftools-native"
