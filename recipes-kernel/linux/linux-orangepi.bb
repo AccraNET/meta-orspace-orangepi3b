@@ -55,6 +55,7 @@ require recipes-kernel/linux/linux-yocto.inc
 # tree if you do not want to build from Linus' tree.
 SRC_URI = "git://github.com/orangepi-xunlong/linux-orangepi.git;name=machine;branch=orange-pi-6.1-rk35xx;protocol=https \
            file://0001-Makefile-not-supports-out-of-tree-builds.patch \
+           file://0001-back-port-rk3566-dts-files-from-mainline.patch \
            "
 # SRC_URI += "file://defconfig"
 
@@ -84,3 +85,5 @@ KCONFIG_MODE = "alldefconfig"
 EXTRA_OEMAKE += "V=1"
 
 INSANE_SKIP:${PN}-src += "buildpaths"
+
+KERNEL_DEVICETREE = "rockchip/rk3566-orangepi-3b-v1.1.dtb"
