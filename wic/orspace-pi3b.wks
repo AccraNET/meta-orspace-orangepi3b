@@ -1,3 +1,4 @@
 bootloader --ptable gpt
 part --source rawcopy --sourceparams="file=u-boot-rockchip.bin" --align 32 --no-table
+part --source bootimg-partition  --fstype=vfat --align 1024 --label boot
 part --source rootfs --fstype=ext4 --align 1024
