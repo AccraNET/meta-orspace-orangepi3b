@@ -130,7 +130,18 @@ To-DO
 
 
 # Booting Linux
-TO-DO
+TO-DO  
+
+
+# FILE SYSTEM ACCESS
+
+# Device trees
+The device trees in the uboot source can be found at  
+`dts/upstream/src/arm64`
+
+## Storage controllers / devices
+The TF-card (Micro Sd) slot is connected to sdmmc0 controller on the rk3566.  
+
 
 
 # Troubleshoot
