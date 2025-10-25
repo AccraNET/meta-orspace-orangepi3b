@@ -1,0 +1,23 @@
+From e19e803ae66a98ec6c72b0bbb65e46342236521a Mon Sep 17 00:00:00 2001
+From: cerezo <cerezo.larbi@outlook.com>
+Date: Wed, 22 Oct 2025 23:25:44 +0000
+Subject: [PATCH] Change default device tree
+
+Upstream-Status: Inappropriate
+---
+ configs/orangepi-3b-rk3566_defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configs/orangepi-3b-rk3566_defconfig b/configs/orangepi-3b-rk3566_defconfig
+index 44bf345c7a6..6740b7780f8 100644
+--- a/configs/orangepi-3b-rk3566_defconfig
++++ b/configs/orangepi-3b-rk3566_defconfig
+@@ -5,7 +5,7 @@ CONFIG_ARCH_ROCKCHIP=y
+ CONFIG_SPL_GPIO=y
+ CONFIG_SF_DEFAULT_SPEED=24000000
+ CONFIG_SF_DEFAULT_MODE=0x2000
+-CONFIG_DEFAULT_DEVICE_TREE="rk3566-orangepi-3b"
++CONFIG_DEFAULT_DEVICE_TREE="rk3566-orangepi-3b-v1.1"
+ CONFIG_ROCKCHIP_RK3568=y
+ CONFIG_ROCKCHIP_SPI_IMAGE=y
+ CONFIG_SPL_SERIAL=y

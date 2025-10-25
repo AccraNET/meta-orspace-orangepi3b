@@ -4,8 +4,9 @@ require recipes-bsp/u-boot/u-boot-common.inc
 inherit python3native
 
 SRC_URI += "file://0001-Add-Orspace-product-number.patch \
-            file://0001-Add-Bootz-command-support-configuration-option.patch \
-            file://rk3566_ddr_1056MHz_v1.23.bin \
+           file://0001-Add-Bootz-command-support-configuration-option.patch \
+           file://rk3566_ddr_1056MHz_v1.23.bin \
+           file://0001-Change-default-device-tree.patch \
            "
 
 DEPENDS += "tfa-orspace"
