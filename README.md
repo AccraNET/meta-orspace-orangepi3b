@@ -37,3 +37,6 @@ A copy of this binary is included in this repo under the "binaries" folder.
 NB: The commands need to be run using sudo.
 
 
+
+# DOCUMENTATION
+Vist the docs folder for info on foused learning points
