@@ -1,0 +1,38 @@
+From bcca8cfbfc305b34f0f33154ae134289e411e7db Mon Sep 17 00:00:00 2001
+From: cerezo <cerezo.larbi@outlook.com>
+Date: Sat, 25 Oct 2025 14:52:31 +0000
+Subject: [PATCH] Modify opi defconfig
+
+Upstream-Status: Inappropriate
+---
+ configs/orangepi-3b-rk3566_defconfig | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/configs/orangepi-3b-rk3566_defconfig b/configs/orangepi-3b-rk3566_defconfig
+index 6740b7780f8..25b5b9e8bb8 100644
+--- a/configs/orangepi-3b-rk3566_defconfig
++++ b/configs/orangepi-3b-rk3566_defconfig
+@@ -24,6 +24,7 @@ CONFIG_FIT_VERBOSE=y
+ CONFIG_SPL_FIT_SIGNATURE=y
+ CONFIG_SPL_LOAD_FIT=y
+ CONFIG_LEGACY_IMAGE_FORMAT=y
++CONFIG_BOOTCOMMAND="load mmc 1:1 \${kernel_addr_r} Image; load mmc 1:1 \${fdt_addr_r} rk3566-orangepi-3b-v1.1.dtb; booti \${kernel_addr_r} - \${fdt_addr_r}"
+ CONFIG_DEFAULT_FDT_FILE="rockchip/rk3566-orangepi-3b.dtb"
+ # CONFIG_DISPLAY_CPUINFO is not set
+ CONFIG_DISPLAY_BOARDINFO_LATE=y
+@@ -33,6 +34,7 @@ CONFIG_SPL_PAD_TO=0x7f8000
+ CONFIG_SPL_SPI_LOAD=y
+ CONFIG_SYS_SPI_U_BOOT_OFFS=0x60000
+ CONFIG_SPL_ATF=y
++CONFIG_CMD_BOOTZ=y
+ CONFIG_CMD_GPIO=y
+ CONFIG_CMD_GPT=y
+ CONFIG_CMD_I2C=y
+@@ -40,7 +42,6 @@ CONFIG_CMD_MMC=y
+ CONFIG_CMD_PCI=y
+ CONFIG_CMD_POWEROFF=y
+ CONFIG_CMD_USB=y
+-CONFIG_CMD_BOOTI=y
+ # CONFIG_CMD_SETEXPR is not set
+ CONFIG_CMD_PMIC=y
+ CONFIG_CMD_REGULATOR=y
