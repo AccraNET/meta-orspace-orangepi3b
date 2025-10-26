@@ -8,6 +8,7 @@ SRC_URI += "file://0001-Add-Orspace-product-number.patch \
            file://rk3566_ddr_1056MHz_v1.23.bin \
            file://0001-Change-default-device-tree.patch \
            file://0001-Modify-opi-defconfig.patch \
+           file://0001-Add-bootargs-environment-file-to-Uboot-config-file.patch \
            "
 
 DEPENDS += "tfa-orspace"

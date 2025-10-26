@@ -1,0 +1,22 @@
+From e074dcdef7a2912563a9e7acd519c788b10d4a7c Mon Sep 17 00:00:00 2001
+From: cerezo <cerezo.larbi@outlook.com>
+Date: Sun, 26 Oct 2025 22:00:38 +0000
+Subject: [PATCH] Add bootargs environment file to Uboot config file
+
+Upstream-Status: Inappropriate
+---
+ include/configs/rk3568_common.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/configs/rk3568_common.h b/include/configs/rk3568_common.h
+index 90942b14d03..65a2753e7df 100644
+--- a/include/configs/rk3568_common.h
++++ b/include/configs/rk3568_common.h
+@@ -26,6 +26,7 @@
+ 	"fdt_addr_r=0x12000000\0"	\
+ 	"fdtoverlay_addr_r=0x12100000\0"	\
+ 	"ramdisk_addr_r=0x12180000\0"	\
++	"bootargs=console=ttyS2,1500000 root=/dev/mmcblk1p2 rootfstype=ext4 rw rootwait\0"	\
+ 	"kernel_comp_size=0x8000000\0"
+ 
+ #define CFG_EXTRA_ENV_SETTINGS		\
