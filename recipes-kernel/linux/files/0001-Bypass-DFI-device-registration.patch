@@ -1,0 +1,22 @@
+From c1f5808d6b977a54754ff47636f43e89d738b03a Mon Sep 17 00:00:00 2001
+From: cerezo <cerezo.larbi@outlook.com>
+Date: Sun, 26 Oct 2025 13:05:00 +0000
+Subject: [PATCH] Bypass DFI device registration
+
+Upstream-Status: Inappropriate
+---
+ drivers/devfreq/event/rockchip-dfi.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
+index df8143c6a242..45e472bc87ef 100644
+--- a/drivers/devfreq/event/rockchip-dfi.c
++++ b/drivers/devfreq/event/rockchip-dfi.c
+@@ -811,6 +811,7 @@ static int rockchip_dfi_probe(struct platform_device *pdev)
+ 	int (*init)(struct platform_device *pdev, struct rockchip_dfi *data,
+ 		    struct devfreq_event_desc *desc);
+ 
++	return 0;
+ 	data = devm_kzalloc(dev, sizeof(struct rockchip_dfi), GFP_KERNEL);
+ 	if (!data)
+ 		return -ENOMEM;

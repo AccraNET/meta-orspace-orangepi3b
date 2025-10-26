@@ -56,6 +56,7 @@ require recipes-kernel/linux/linux-yocto.inc
 SRC_URI = "git://github.com/orangepi-xunlong/linux-orangepi.git;name=machine;branch=orange-pi-6.1-rk35xx;protocol=https \
            file://0001-Makefile-not-supports-out-of-tree-builds.patch \
            file://0001-back-port-rk3566-dts-files-from-mainline.patch \
+           file://0001-Bypass-DFI-device-registration.patch \
            "
 # SRC_URI += "file://defconfig"
 
