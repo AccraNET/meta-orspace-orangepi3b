@@ -76,23 +76,65 @@ This links the GPU node to an Operating Performance Points (OPP) table, which de
 - **Performance states** the GPU can operate at
 - **Power consumption** characteristics at each operating point
 
-The `gpu_opp_table` is defined elsewhere and typically contains entries like:
+### OPP Table Definition
+
+**Location:** `other/rk3566.dtsi` (lines 54-85)
 
 ```dts
-gpu_opp_table: opp-table {
+gpu_opp_table: opp-table-1 {
     compatible = "operating-points-v2";
-    
+
     opp-200000000 {
         opp-hz = /bits/ 64 <200000000>;
-        opp-microvolt = <825000>;
+        opp-microvolt = <850000 850000 1000000>;
     };
+
+    opp-300000000 {
+        opp-hz = /bits/ 64 <300000000>;
+        opp-microvolt = <850000 850000 1000000>;
+    };
+
     opp-400000000 {
         opp-hz = /bits/ 64 <400000000>;
-        opp-microvolt = <900000>;
+        opp-microvolt = <850000 850000 1000000>;
     };
-    /* ... more entries ... */
+
+    opp-600000000 {
+        opp-hz = /bits/ 64 <600000000>;
+        opp-microvolt = <900000 900000 1000000>;
+    };
+
+    opp-700000000 {
+        opp-hz = /bits/ 64 <700000000>;
+        opp-microvolt = <950000 950000 1000000>;
+    };
+
+    opp-800000000 {
+        opp-hz = /bits/ 64 <800000000>;
+        opp-microvolt = <1000000 1000000 1000000>;
+    };
 };
 ```
+
+### Operating Points Summary
+
+| Frequency | Min Voltage | Target Voltage | Max Voltage |
+|-----------|-------------|----------------|-------------|
+| 200 MHz   | 850 mV      | 850 mV         | 1000 mV     |
+| 300 MHz   | 850 mV      | 850 mV         | 1000 mV     |
+| 400 MHz   | 850 mV      | 850 mV         | 1000 mV     |
+| 600 MHz   | 900 mV      | 900 mV         | 1000 mV     |
+| 700 MHz   | 950 mV      | 950 mV         | 1000 mV     |
+| 800 MHz   | 1000 mV     | 1000 mV        | 1000 mV     |
+
+### OPP Property Explanations
+
+| Property | Description |
+|----------|-------------|
+| `opp-hz` | Operating frequency in Hz (64-bit value) |
+| `opp-microvolt` | Voltage triplet: `<min target max>` in microvolts |
+
+The DVFS governor will scale between these operating points based on GPU load, balancing performance and power consumption.
 
 ---
 
